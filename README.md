@@ -11,22 +11,24 @@ https://pokeapi.co URL'i üzerindeki Rest API kullanılarak, ismini kullanıcın
 #### Weasyprint
 **htmltopdf**.*py* programının kullanımı için ***weasyprint*** dahil edilmeli bundan dolayı;
 
-`pip install weasyprint`
+``` Bash
+pip3 install weasyprint
+```
 
 
 #### Pokebase
 **mainPokeBase**.*py* programının kullanımı için ***pokebase*** dahil edilmeli bundan dolayı;
 
-`pip install pokebase`
+``` Bash
+pip3 install pokebase
+```
 
 ---
 
 ### Modules
 #### sendmail.py
 
-```
-Python
-
+``` Python
 from userInfo import * # sender_email ve password bilgilerini içerir
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
@@ -34,9 +36,7 @@ from email import encoders
 import smtplib
 ```
 #### mainRest.py
-```
-Python
-
+``` Python
 from createhtml import *
 from htmltopdf import *
 from sendmail import *
@@ -44,17 +44,13 @@ from sendmail import *
 import requests
 ```
 #### mainPokeBase.py
-```
-Python
-
+``` Python
 from pokebase import *
 from createhtml import *
 from htmltopdf import *
 from sendmail import *
 ```
 #### createhtml.py
-```
-Python
-
+``` Python
 from weasyprint import HTML
 ```
