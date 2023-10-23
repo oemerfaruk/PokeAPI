@@ -23,6 +23,4 @@ for x,y in ability_descriptions.items():
 
 createHTML(table,pokemon)
 html2pdf(pokemon)
-#sendMail(pokemon)
-
-# ability ismi pokebase type ad'larından biriyle çakıştığı için aby adı verildi
+sendMail(pokemon)
