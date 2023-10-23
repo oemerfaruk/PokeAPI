@@ -58,3 +58,12 @@ from sendmail import *
 ``` Python
 from weasyprint import HTML
 ```
+
+#### userInfo.py
+``` Python
+sender_email = "thisIsYour@e-mail.adress"
+password = "this is the password of your e-mail"
+```
+---
+### Schema
+<img src='case study - pokeapi.jpg'>

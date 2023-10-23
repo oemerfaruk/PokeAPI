@@ -6,19 +6,12 @@ from sendmail import *
 
 pokemon = pokemon(str(input("What is your pokemon?\t")))
 
-abilities = [ability.ability.name for ability in pokemon.abilities]
-
-print("{}'nun Yetenekleri: ".format(pokemon))
+abilities = [ability.ability.name for ability in pokemon.abilities] # pokemonun yetenekleri alınıyor
 
 ability_descriptions = {}
-for aby in abilities:
-    print(aby)
+for aby in abilities: # ability ismi pokebase type ad'larından biriyle çakıştığı için aby adı verildi
 
-    print("{} Yeteneğinin Özellikleri".format(aby.capitalize()))
-
-    print("Tanım: {}".format(ability(aby).effect_entries[1].effect))
-
-    description = ability(aby).effect_entries[1].effect
+    description = ability(aby).effect_entries[1].effect # Yeteneğin açıklaması ingilizce alınıyor. effect_entries[1] ingilizce tanım
     ability_descriptions[aby.capitalize()] = description
 
 
@@ -28,5 +21,8 @@ for x,y in ability_descriptions.items():
     table += "".join("<tr><td>{}</td><td>{}</td></tr>".format(x,y))
 
 
-createHTML(table)
-html2pdf()
+createHTML(table,pokemon)
+html2pdf(pokemon)
+#sendMail(pokemon)
+
+# ability ismi pokebase type ad'larından biriyle çakıştığı için aby adı verildi

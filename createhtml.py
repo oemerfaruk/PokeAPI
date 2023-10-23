@@ -1,4 +1,4 @@
-def createHTML(table):
+def createHTML(table,name):
     html_content = """
     <!DOCTYPE html>
     <html>
@@ -17,7 +17,7 @@ def createHTML(table):
     </html>
     """.format(table)
     
-    with open('table.html', 'w') as f:
+    with open('{}.html'.format(name), 'w') as f:
         f.write(html_content)
 
 

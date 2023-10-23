@@ -1,20 +1,23 @@
 from userInfo import *
+
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email import encoders
+
+
 import smtplib
 
-def sendMail():
+def sendMail(name):
     receiver_email = str(input("who is the receiver?\t"))
 
     msg = MIMEMultipart()
     msg['From'] = sender_email
     msg['To'] = receiver_email
-    msg['Subject'] = "PDF file"
+    msg['Subject'] = "Abilities of " + str(name)
 
 
     # PDF dosyasını eklemek
-    pdf_filename = "table.pdf"
+    pdf_filename = "{}.pdf".format(name)
     attachment = open(pdf_filename, "rb")
     part = MIMEBase('application', 'octet-stream')
     part.set_payload((attachment).read())
