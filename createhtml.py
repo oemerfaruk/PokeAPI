@@ -1,4 +1,4 @@
-def createHTML(table,name):
+def createHTML(table):
     html_content = """
     <!DOCTYPE html>
     <html>
@@ -7,17 +7,13 @@ def createHTML(table,name):
     </head>
     <body>
         <table>
-            <tr>
-                <th>Ability</th>
-                <th>Description</th>
-            </tr>
-            {0}
+            {}
         </table>
     </body>
     </html>
     """.format(table)
     
-    with open('{}.html'.format(name), 'w') as f:
+    with open('pokemon.html', 'w') as f:
         f.write(html_content)
 
 

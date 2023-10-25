@@ -7,17 +7,17 @@ from email import encoders
 
 import smtplib
 
-def sendMail(name):
-    receiver_email = str(input("who is the receiver?\t"))
+def sendMail(receiver_email):
+
 
     msg = MIMEMultipart()
     msg['From'] = sender_email
     msg['To'] = receiver_email
-    msg['Subject'] = "Abilities of " + str(name)
+    msg['Subject'] = "Abilities of Pokemon"
 
 
     # PDF dosyasını eklemek
-    pdf_filename = "{}.pdf".format(name)
+    pdf_filename = "pokemon.pdf"
     attachment = open(pdf_filename, "rb")
     part = MIMEBase('application', 'octet-stream')
     part.set_payload((attachment).read())
@@ -33,6 +33,17 @@ def sendMail(name):
         text = msg.as_string()
         server.sendmail(sender_email, receiver_email, text)
         server.quit()
-        print("E-posta başarıyla gönderildi.")
+        return print("{} E-posta başarıyla gönderildi.".format(str(receiver_email)))
     except Exception as e:
-        print("E-posta gönderme hatası:", str(e))
+        return print("{} E-posta gönderme hatası:".format(str(receiver_email)), str(e))
+
+
+def main():
+    receiver_emails = list()
+    while True:
+        address = str(input("who is the receiver?\tif it is finish, press enter\n"))
+        if address == '': break
+        else: receiver_emails.append(address)
+
+    for address in receiver_emails:
+        sendMail(address)
